@@ -1,0 +1,24 @@
+ul,li{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+ul{
+    border-left: 1px solid #ccc;
+}
+li:last-child span{
+    border-bottom: 1px solid #ccc;
+}
+li span{
+    display: inline-block;
+    width: 80px;
+    border-top: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    padding: 10px 0;
+}
+li:nth-child(2n+1) span{
+    background-color: darkcyan;
+}
+li:nth-child(2n+2) span{
+    background-color:ivory ;
+}
