@@ -31,7 +31,7 @@ module.exports = {
 };
 ```
 
-- 配置别名
+- 配置别名，省略扩展名
 
 ```js
 resolve: {
@@ -39,7 +39,8 @@ resolve: {
         '@': path.resolve(__dirname, 'src'),
         'scss': path.resolve(__dirname, 'src/scss'),
         'module': path.resolve(__dirname, 'src/module')
-    }
+    },
+    extensions: ['.js', '.json', '.wasm', '.webp']
 },
 
 ```
@@ -72,3 +73,5 @@ resolve: {
     }]
 }
 ```
+### 三. webpack高级用法
+- require.context, 获取文件夹及其子文件夹内部的所有符合条件的文件

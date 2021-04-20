@@ -1,0 +1,69 @@
+.menu{
+    width: 1100px;
+    // margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: url('https://wallpaper.infinitynewtab.com/wallpaper/2929.jpg') no-repeat;
+    .icon{
+        width: 36px;
+    }
+    li{
+        width: 220px;
+        height: 160px;
+        margin-bottom: 25px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content:space-between;
+        color:#fff;
+    }
+    li>img{
+        width: 108px;
+        border-radius: 50%;
+    }
+    section:last-child{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+    header{
+        width: 680px;
+        height: 50px;
+        line-height: 50px;
+        margin-top: 30px;
+        padding-left: 70px;
+        align-items: flex-end;
+        color: rgba(255,255,255,.65);
+        span{
+            margin-right: 50px;
+        }
+        span.active{
+            color: rgba(255,255,255,.9);
+            border-bottom: solid 2px rgba(255,77,78,.81);
+        }
+    }
+    .input{
+        height: 62px;
+        width: 680px;
+        margin-bottom: 50px;
+        position: relative;
+        img{
+            position: absolute;
+            margin: 13px 0 0 13px;
+        }
+        input{
+            width: 100%;
+            height: 100%;
+            border-radius: 40px;
+            outline: none;
+            border: 1px solid #eee;
+            padding: 0 0 0 62px;
+            font-size: 20px;
+        }
+    }
+}
+li{
+    list-style: none;
+}

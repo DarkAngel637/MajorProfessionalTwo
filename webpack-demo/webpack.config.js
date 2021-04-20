@@ -8,6 +8,8 @@ module.exports = {
     // 配置webpack起服务
     devServer: {
         open: true,
+        // 0.0.0.0 127.0.0.1 localhost指向自己
+        host: '0.0.0.0',
         hot: true,
         liveReload: true
     },
@@ -16,7 +18,8 @@ module.exports = {
             '@': path.resolve(__dirname, 'src'),
             'scss': path.resolve(__dirname, 'src/scss'),
             'module': path.resolve(__dirname, 'src/module')
-        }
+        },
+        extensions: ['.js', '.json', '.wasm', '.webp'],
     },
     module: {
         rules: [{

@@ -1,3 +1,4 @@
 node_modules
-/package-loak.json
-/dist
+package-loak.json
+dist
+.DS_Store
