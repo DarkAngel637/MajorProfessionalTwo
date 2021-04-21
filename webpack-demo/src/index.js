@@ -1,9 +1,8 @@
-// console.log('hello world!');
-import '@/module/num.js'
-import '@/module/img.js'
-import '@/module/login.js'
-import '@/module/menu.js'
-import '@/module/shop'
+// import '@/module/num.js'
+// import '@/module/img.js'
+// import '@/module/login.js'
+// import '@/module/menu.js'
+// import '@/module/shop'/
 
 // 引入scss
 // import 'scss/num.scss'
