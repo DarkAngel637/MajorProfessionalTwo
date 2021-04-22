@@ -270,3 +270,51 @@ module.exports = {
     ]
 }
 ```
+
+## Vue学习笔记
+### 使用webpack手动搭建vue开发环境
+- 需要安装的vue相关包
+  - vue-loader
+  - vue-template-compiler
+  - vue-style-loader
+- 示例配置
+```js
+const { VueLoaderPlugin } = require('vue-loader')
+
+module.exports = {
+    output: {
+        publicPath: '/dist'
+    },
+    devServer: {
+        open: true
+    },
+    module: {
+        rules: [{
+            test: /\.css|sass|scss/,
+            use: ['vue-style-loader', 'css-loader', 'sass-loader']
+        },{
+            test: /\.vue$/,
+            use: ['vue-loader']
+        }]
+    },
+    plugins: [
+        new VueLoaderPlugin()
+    ]
+}
+```
+
+### vue的基础知识
+- 概念
+  - Vue实例，new Vue，全局唯一
+    - el: html中挂载的选择器
+    - render: 挂载根vue组件的函数
+  - VueComponent实例，单vue文件，全局很多
+    - template 模版，里面使用相关的vue语法
+    - script 脚本，里面写相关业务逻辑
+    - style 样式，里面为模版中的标签添加样式
+- 指令
+  - v-bind，简写：，绑定属性
+  - v-on，简写@，绑定事件
+  - v-for，遍历数组或对象，加key表示唯一
+- 生命周期
+  - mounted，组件挂载完成之后，可以中dom中访问到template里面的元素
