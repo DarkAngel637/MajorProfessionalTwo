@@ -5,7 +5,8 @@ module.exports = {
         publicPath: '/dist'
     },
     devServer: {
-        open: true
+        open: true,
+        host: '10.0.5.48'
     },
     module: {
         rules: [{
