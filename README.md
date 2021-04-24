@@ -316,5 +316,41 @@ module.exports = {
   - v-bind，简写：，绑定属性
   - v-on，简写@，绑定事件
   - v-for，遍历数组或对象，加key表示唯一
-- 生命周期
-  - mounted，组件挂载完成之后，可以中dom中访问到template里面的元素
+  - v-if,v-else-if,v-else 条件渲染
+  - v-show css层面选择渲染
+  - v-html 插入子元素
+  - v-text 插入文本
+- 事件
+  - 事件绑定：v-on
+  - this指向
+    - 指向当期组件的实例，在源代码中使用bind绑定的
+  - 事件绑定的值
+    - 函数名：此函数作为事件处理函数，可以拿到事件对象Event
+    - 函数调用: 此函数作为事件处理函数中的语句，拿不到事件对象Event，但是可以传入其他需要的参数
+    - js表达式：此表达式作为事件处理函数中的语句，拿不到事件对象Event
+    - 箭头函数：箭头函数作为事件处理函数，函数体里的函数可以通过箭头函数拿到Event，也可以传如其他参数
+```js
+    <p v-text="'周六开关1'" @click="changeSaturday"></p>
+    <p v-text="'周六开关2'" @click="changeSaturday()"></p>
+    <p v-text="'周六开关3'" @click="showSaturday = !showSaturday"></p>
+    <p v-text="'周六开关4'" @click="e=>changeSaturday(e, '123')"></p>
+```
+- 生命周期（八个）
+  - beforeCreate、created
+    - 常用created请求数据
+  - beforeMount、mounted
+    - 组件挂载完成之后，可以中dom中访问到template里面的元素
+    - 当组件挂载完成之后，添加事件，实例化swpier，实例地图，实例化echart
+  - beforeUpdate、updated
+    - 记住组件更新之前当状态
+    - 常用updated在组件状态更新之后触发相关操作
+  - beforeDestory、destroyed
+    - 记录相关表单数据，用于自动填充
+- MVVM架构(数据驱动试图)
+  - Model：data，响应式数据集合
+  - View：template模版
+  - ViewModel：响应模型
+- 基本语法
+  - 模版绑定：{{}}
+  - 属性绑定：v-bind
+  - 事件绑定：v-on
