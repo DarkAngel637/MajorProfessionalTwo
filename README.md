@@ -45,7 +45,7 @@ resolve: {
 },
 ```
 - 区分babel-loader和babel-polyfill
-  -  babel-loader是loader处理es6和esnext等一些新的语法
+  -  babel-loader是loader处理es6和esnext等一些新的语法
   -  babel-polyfill是补丁，让老的浏览器可以使用promise、proxy等新的特性
 - babel 配置
 - scss 配置
@@ -177,7 +177,7 @@ const data = fs.readFileSync('./src/mock/data.json');
 module.exports = {
     entry: ['babel-polyfill', './src/index.js'],
     output: {
-        filename: '[name].js',
+        filename: '[name].[hash:6].js',
         path: path.resolve(__dirname, 'dist'),
         publicPath: '/dist'
     },
