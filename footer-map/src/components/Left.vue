@@ -1,11 +1,13 @@
 <template>
     <div>
-        <span 
+        <p 
             :class="curProvinceId===item.CityID?'active':''"
             v-for="(item) in provinceList" 
             :key="item.CityID" 
             @click="changeProvince(item.CityID)"
-        >{{item.CityName}}</span>
+        >{{item.CityName}}
+        <span v-if="item.select.length">{{item.select.length}}</span>
+        </p>
     </div>
 </template>
 
@@ -16,8 +18,8 @@ export default {
 }
 </script>
 
-<style lang="scss">
-span{
+<style lang="scss" scoped>
+p{
     display: inline-block;
     width: 76%;
     margin: 10px 15% 0 12%;
@@ -27,7 +29,7 @@ span{
     text-align: center;
     padding: 5px 0;
 }
-span.active{
+p.active{
     background: orange;
 }
 </style>
