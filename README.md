@@ -354,3 +354,44 @@ module.exports = {
   - 模版绑定：{{}}
   - 属性绑定：v-bind
   - 事件绑定：v-on
+- props
+  - 作用：实现组件之间的数据传递：父向子、子向父、兄弟组件
+  - props的声明：props：[] 或{}
+  - props的类型检测，type
+  - props的默认值，defalut
+```js
+export default {
+    props: {
+        cityList: {
+            default: ()=>[],
+            type: Array
+        },
+        changeCity: {
+            default: ()=>{},
+            type: Function
+        },
+        select: {
+            default: ()=>[],
+            type: Array
+        }
+    }
+}
+```
+- 组件  
+  - 组件的作用：抽象，封装，复用
+  - 组件的状态
+    - data，自身的状态，可以随意修改
+    - props，祖先的状态，只读不可修改，用传递函数的方式传递修改逻辑
+  - 组件的声明与使用(cityList)
+    - 在components里面声明局部组件
+    - 在tempalte里面直接使用:<cityList />或<city-list></city-list>
+  
+- 计算属性computed
+  - 作用：计算派生数据
+  - 值：函数的执行结果
+  - 优化：可以缓存结果
+- 监听属性watch
+  - 作用：监听对象，执行相关回调逻辑
+  - 监听对象：data，props，computed，$route
+  - 深度监听, deep: true
+  - 立即执行：immediat: true

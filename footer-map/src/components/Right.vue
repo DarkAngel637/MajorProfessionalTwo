@@ -1,10 +1,10 @@
 <template>
     <div class="right">
         <span 
-            :class="select.indexOf(item.CityID)!==-1?'city active':'city'" 
+            :class="select.findIndex(value=>value.cid===item.CityID)!==-1?'city active':'city'" 
             v-for="(item) in cityList" 
             :key="item.CityID"
-            @click="changeCity(item.CityID)"
+            @click="changeCity(item.CityID, item.CityName)"
         >{{item.CityName}}</span>
     </div>
 </template>

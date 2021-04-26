@@ -12,9 +12,9 @@
         v-if="provinceList[curProvinceId]"
         :cityList="cityList"
         :changeCity="changeCity"
-        :select="provinceList[curProvinceId].select"
+        :select="select"
       />
-      <button>提交</button>
+      <button @click="submit">提交</button>
     </div>
   </div>
 </template>
@@ -32,13 +32,27 @@ export default {
       curProvinceId: 0,
     };
   },
+  // 计算属性
+  computed: {
+    select(){
+      let curProvinceIndex = this.provinceList.findIndex(item=>item.CityID === this.curProvinceId);
+      return this.provinceList[curProvinceIndex].select;
+    }
+  },
   // 监听属性
   watch: {
     curProvinceId(val){
       this.getCityList();
     },
-    provinceList(val){
-      console.log('当前选中的城市...', this.provinceList[this.curProvinceId].select);
+    // provinceList(val){
+    //   console.log('当前选中的城市...', this.provinceList[this.curProvinceId].select);
+    // }
+    provinceList: {
+      handler(){  
+        console.log('当前选中的城市...', this.provinceList[this.curProvinceId].select);
+      },
+      immediate: true,  //  立即执行
+      deep: true  //  深度监听
     }
   },
   methods: {
@@ -47,13 +61,16 @@ export default {
       this.curProvinceId = id;
     },
     // 选中和非选中城市
-    changeCity(cid) {
+    changeCity(cid, cityName) {
       let curProvinceIndex = this.provinceList.findIndex(item=>item.CityID === this.curProvinceId);
-      let index = this.provinceList[curProvinceIndex].select.findIndex(item=>item===cid);
+      let index = this.provinceList[curProvinceIndex].select.findIndex(item=>item.cid===cid);
       if (index !== -1){
         this.provinceList[curProvinceIndex].select.splice(index, 1);
       }else{
-        this.provinceList[curProvinceIndex].select.push(cid);
+        this.provinceList[curProvinceIndex].select.push({
+          cid,
+          cityName
+        });
       }
     },
     // 获取省份城市
@@ -62,6 +79,15 @@ export default {
       if (result.data.code === 1){
         this.cityList = result.data.data.filter(item=>item.CityName.length<5);
       }
+    },
+    // 获取所有选择的城市
+    submit(){
+      let citys = [];
+      this.provinceList.forEach(item=>{
+        citys = [...citys, ...item.select];
+      }); 
+      let cityStr = citys.map(item=>item.cityName).join('、');
+      console.log('citys...', cityStr);
     }
   },
   // 局部注册两个组件
@@ -74,8 +100,8 @@ export default {
     // await后面跟promise或者其他数据，返回promise resolve时传递到数据，会阻塞代码执行
     let result = await this.axios.get('http://baojia.chelun.com/v1-city-alllist.html');
     if (result.data.code === 1){
-      this.provinceList = result.data.data.map(item=>{return {...item, CityName: item.CityName.replace(/特别行政区/, ''), select: []}});
-      this.curProvinceId = this.provinceList[0].CityID;
+      // this.provinceList = result.data.data.map(item=>{return {...item, CityName: item.CityName.replace(/特别行政区/, ''), select: []}});
+      // this.curProvinceId = this.provinceList[0].CityID;
     }
   }
   // created() {
