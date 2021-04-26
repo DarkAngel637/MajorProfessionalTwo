@@ -320,6 +320,9 @@ module.exports = {
   - v-show css层面选择渲染
   - v-html 插入子元素
   - v-text 插入文本
+  - v-model 双向绑定受控组件
+    - 常用的组件：input，checkbox，textarea，select
+    - 常用修饰符：.lazy(input->change)，.number, .trim
 - 事件
   - 事件绑定：v-on
   - this指向
@@ -329,6 +332,9 @@ module.exports = {
     - 函数调用: 此函数作为事件处理函数中的语句，拿不到事件对象Event，但是可以传入其他需要的参数
     - js表达式：此表达式作为事件处理函数中的语句，拿不到事件对象Event
     - 箭头函数：箭头函数作为事件处理函数，函数体里的函数可以通过箭头函数拿到Event，也可以传如其他参数
+  - 自定义事件
+    - 绑定，@getSearchResult
+    - 触发，this.$emit('getSearchResult', value)
 ```js
     <p v-text="'周六开关1'" @click="changeSaturday"></p>
     <p v-text="'周六开关2'" @click="changeSaturday()"></p>
