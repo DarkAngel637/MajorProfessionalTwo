@@ -1,0 +1,71 @@
+{
+    "successed": true,
+    "categories": [
+        {
+            "DisplayName": "招牌草莓塔",
+            "CategoryId": 6866093,
+            "CategoryUid": 1618282053717969796,
+            "CategoryUidTxt": "1618282053717969796",
+            "Selected": false,
+            "EShopCategoryImageUrl": "",
+            "SubCategories": [],
+            "ProCount": 0,
+            "CategoryType": 0,
+            "DisplayOrder": 2147483647,
+            "Level": 0
+        },
+        {
+            "DisplayName": "滋滋限定",
+            "CategoryId": 6866094,
+            "CategoryUid": 1618282060985736312,
+            "CategoryUidTxt": "1618282060985736312",
+            "Selected": false,
+            "EShopCategoryImageUrl": "",
+            "SubCategories": [],
+            "ProCount": 0,
+            "CategoryType": 0,
+            "DisplayOrder": 2147483647,
+            "Level": 0
+        },
+        {
+            "DisplayName": "独角兽限定",
+            "CategoryId": 6866095,
+            "CategoryUid": 1618282068905193198,
+            "CategoryUidTxt": "1618282068905193198",
+            "Selected": false,
+            "EShopCategoryImageUrl": "",
+            "SubCategories": [],
+            "ProCount": 0,
+            "CategoryType": 0,
+            "DisplayOrder": 2147483647,
+            "Level": 0
+        },
+        {
+            "DisplayName": "滋滋制冰厂",
+            "CategoryId": 6866096,
+            "CategoryUid": 1618282076423179224,
+            "CategoryUidTxt": "1618282076423179224",
+            "Selected": false,
+            "EShopCategoryImageUrl": "",
+            "SubCategories": [],
+            "ProCount": 0,
+            "CategoryType": 0,
+            "DisplayOrder": 2147483647,
+            "Level": 0
+        },
+        {
+            "DisplayName": "招牌蕉蕉茶",
+            "CategoryId": 6866162,
+            "CategoryUid": 1618282815807663226,
+            "CategoryUidTxt": "1618282815807663226",
+            "Selected": false,
+            "EShopCategoryImageUrl": "",
+            "SubCategories": [],
+            "ProCount": 0,
+            "CategoryType": 0,
+            "DisplayOrder": 2147483647,
+            "Level": 0
+        }
+    ],
+    "categoryUid": "1618282053717969796"
+}

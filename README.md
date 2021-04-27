@@ -6,7 +6,6 @@
 - 创建 webpack 配置文件：webpack.config.js
 - 安装 webpack 包：webpack, webpack-dev-server, webpack-cli@3.3.12
 - 修改 packjson 中的 script,添加mode区分开发环境还是生成环境
-
 ```js
  "scripts": {
     "dev": "webpack-dev-server --mode=development",
