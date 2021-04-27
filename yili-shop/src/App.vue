@@ -4,7 +4,7 @@
       <Menu :categories="categories" @changeCategories="changeCategories"></Menu>
       <List :list="list" @changeNum="changeNum"></List>
     </div>
-    <Bill ></Bill>
+    <Bill :result="result"></Bill>
   </div>
 </template>
 
