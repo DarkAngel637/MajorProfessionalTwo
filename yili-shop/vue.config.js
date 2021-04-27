@@ -12,15 +12,15 @@ module.exports = {
         }
     },
     devServer: {
-        // proxy: {
-        //     '/yili': {
-        //         target: 'http://d52eb-56.pospal.cn',
-        //         changeOrigin: true,
-        //         pathRewrite: {
-        //             '/yili': ''
-        //         }
-        //     }
-        // },
+        proxy: {
+            '/yili': {
+                target: 'http://d52eb-56.pospal.cn',
+                changeOrigin: true,
+                pathRewrite: {
+                    '/yili': ''
+                }
+            }
+        },
         before: function (app, server, compiler) {
             app.get('/list', function(req, res){
                 res.json(JSON.parse(data))

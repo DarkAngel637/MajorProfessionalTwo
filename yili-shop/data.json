@@ -1,71 +1,81 @@
-{
-    "successed": true,
-    "categories": [
-        {
-            "DisplayName": "招牌草莓塔",
-            "CategoryId": 6866093,
-            "CategoryUid": 1618282053717969796,
-            "CategoryUidTxt": "1618282053717969796",
-            "Selected": false,
-            "EShopCategoryImageUrl": "",
-            "SubCategories": [],
-            "ProCount": 0,
-            "CategoryType": 0,
-            "DisplayOrder": 2147483647,
-            "Level": 0
-        },
-        {
-            "DisplayName": "滋滋限定",
-            "CategoryId": 6866094,
-            "CategoryUid": 1618282060985736312,
-            "CategoryUidTxt": "1618282060985736312",
-            "Selected": false,
-            "EShopCategoryImageUrl": "",
-            "SubCategories": [],
-            "ProCount": 0,
-            "CategoryType": 0,
-            "DisplayOrder": 2147483647,
-            "Level": 0
-        },
-        {
-            "DisplayName": "独角兽限定",
-            "CategoryId": 6866095,
-            "CategoryUid": 1618282068905193198,
-            "CategoryUidTxt": "1618282068905193198",
-            "Selected": false,
-            "EShopCategoryImageUrl": "",
-            "SubCategories": [],
-            "ProCount": 0,
-            "CategoryType": 0,
-            "DisplayOrder": 2147483647,
-            "Level": 0
-        },
-        {
-            "DisplayName": "滋滋制冰厂",
-            "CategoryId": 6866096,
-            "CategoryUid": 1618282076423179224,
-            "CategoryUidTxt": "1618282076423179224",
-            "Selected": false,
-            "EShopCategoryImageUrl": "",
-            "SubCategories": [],
-            "ProCount": 0,
-            "CategoryType": 0,
-            "DisplayOrder": 2147483647,
-            "Level": 0
-        },
-        {
-            "DisplayName": "招牌蕉蕉茶",
-            "CategoryId": 6866162,
-            "CategoryUid": 1618282815807663226,
-            "CategoryUidTxt": "1618282815807663226",
-            "Selected": false,
-            "EShopCategoryImageUrl": "",
-            "SubCategories": [],
-            "ProCount": 0,
-            "CategoryType": 0,
-            "DisplayOrder": 2147483647,
-            "Level": 0
-        }
-    ],
-    "categoryUid": "1618282053717969796"
-}
+[{
+    "招牌草莓塔": [{
+        "name": "超级登山草莓塔(小山丘)",
+        "Price": 28,
+        "num": 0,
+        "img": "https://img.pospal.cn/productImages/0/default/food_200x200.png"
+    }, {
+        "name": "超级登山草莓塔(富士山)",
+        "Price": 38,
+        "num": 0,
+        "img": "https://img.pospal.cn/productImages/0/default/food_200x200.png"
+    }, {
+        "name": "超级登山草莓塔(珠穆朗玛峰)",
+        "Price": 88,
+        "num": 0,
+        "img": "https://img.pospal.cn/productImages/0/default/food_200x200.png"
+    }]
+}, {
+    "滋滋限定": [{
+        "name": "芝士蛋糕莓莓啵啵",
+        "Price": 23,
+        "num": 0,
+        "img": "https://img.pospal.cn/productImages/4323938/03f87203-42eb-420d-9b73-69c7975b23c9_200x200.png"
+    }, {
+        "name": "莓莓布甸优格",
+        "Price": 18,
+        "num": 0,
+        "img": "https://img.pospal.cn/productImages/4323938/e8144d8b-1aa2-47ef-91f5-171d30f49840_200x200.png"
+    }, {
+        "name": "莓莓大福乳茶",
+        "Price": 23,
+        "num": 0,
+        "img": "https://img.pospal.cn/productImages/4323938/e0866466-ec70-4417-ae31-377ab887a640_200x200.png"
+    }]
+}, {
+    "独角兽限定": [{
+        "name": "蛋糕栗子厚乳茶",
+        "Price": 23,
+        "num": 0,
+        "img": "https://img.pospal.cn/productImages/4323938/921c9697-87fd-4736-b432-6da4b455a163_200x200.png"
+    }, {
+        "name": "兹兹独角兽奶昔",
+        "Price": 23,
+        "num": 0,
+        "img": "https://img.pospal.cn/productImages/4323938/a0e9ada1-3ce6-40ec-b553-e4edf63bef5a_200x200.png"
+    }, {
+        "name": "爽口生打椰椰芒",
+        "Price": 18,
+        "num": 0,
+        "img": "https://img.pospal.cn/productImages/4323938/c8065027-e005-4e43-bd41-12dfe8034ae5_200x200.png"
+    }, {
+        "name": "蛋糕椰子烤奶茶",
+        "Price": 23,
+        "num": 0,
+        "img": "https://img.pospal.cn/productImages/4323938/44356a71-5f91-4974-8e2b-60c51bbe9d62_200x200.png"
+    }]
+}, {
+    "滋滋制冰厂": [{
+        "name": "吃了个芥末",
+        "Price": 25,
+        "num": 0,
+        "img": "https://img.pospal.cn/productImages/4323938/20c6de14-2725-4de5-ad83-c6c4c30e8624_200x200.png"
+    }]
+}, {
+    "招牌蕉蕉茶": [{
+        "name": "焦糖蕉蕉蛋糕杯",
+        "Price": 23,
+        "num": 0,
+        "img": "https://img.pospal.cn/productImages/4323938/99ca11ac-70d4-403a-ab2e-a90ffffaede4_200x200.png"
+    }, {
+        "name": "泰式焦糖蕉蕉乳茶",
+        "Price": 23,
+        "num": 0,
+        "img": "https://img.pospal.cn/productImages/4323938/9e382e03-ec5e-4a35-82ff-64404340d54a_200x200.png"
+    }, {
+        "name": "舒芙蕾蕉蕉乳茶",
+        "Price": 23,
+        "num": 0,
+        "img": "https://img.pospal.cn/productImages/4323938/7ef41014-b7d7-4fdd-aeb6-c51408c1ee09_200x200.png"
+    }]
+}]

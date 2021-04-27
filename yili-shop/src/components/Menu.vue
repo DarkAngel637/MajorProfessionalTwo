@@ -1,6 +1,6 @@
 <template>
     <ul>
-        <li v-for="item in categories" :key="item.CategoryId" @click="$emit('changeCategories', item.CategoryUid)">{{item.DisplayName}}</li>
+        <li v-for="(item, index) in categories" :key="index" @click="$emit('changeCategories', index)">{{item}}</li>
     </ul>
 </template>
 
