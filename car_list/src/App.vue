@@ -34,7 +34,15 @@ export default {
   async created(){
     let result = await this.$axios('http://baojia.chelun.com/v2-car-getMasterBrandList.html');
     let letters = [...new Set(result.data.data.map(item=>item.Spelling[0]))]
+    // Array.prototype.slice.call();
+
     let brands = [];
+    // [{
+    //   letter: 'A',
+    //   list: [{
+    //     name:'阿仕顿马丁'
+    //   }]
+    // }]
     result.data.data.forEach(item=>{
       let letter = item.Spelling[0];
       let index = brands.findIndex(item=>item.letter===letter);

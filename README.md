@@ -315,6 +315,8 @@ module.exports = {
   - v-bind，简写：，绑定属性
   - v-on，简写@，绑定事件
   - v-for，遍历数组或对象，加key表示唯一
+    - key的作用，复用组件
+    - 尽可能使用唯一标识代替下标
   - v-if,v-else-if,v-else 条件渲染
   - v-show css层面选择渲染
   - v-html 插入子元素
@@ -322,6 +324,14 @@ module.exports = {
   - v-model 双向绑定受控组件
     - 常用的组件：input，checkbox，textarea，select
     - 常用修饰符：.lazy(input->change)，.number, .trim
+  - v-slot 具名插槽
+- 样式绑定
+  - 几种方式
+    - 字符串
+    - 对象
+    - 数组
+  - 局部样式scoped
+    - 覆盖：\deep\
 - 事件
   - 事件绑定：v-on
   - this指向
@@ -388,9 +398,14 @@ export default {
     - data，自身的状态，可以随意修改
     - props，祖先的状态，只读不可修改，用传递函数的方式传递修改逻辑
   - 组件的声明与使用(cityList)
+    - 使用Vue.component声明全局组件
     - 在components里面声明局部组件
     - 在tempalte里面直接使用:<cityList />或<city-list></city-list>
-  
+  - 组件通信
+    - props通信
+    - 自定义事件
+    - Event Bus
+    - slot
 - 计算属性computed
   - 作用：计算派生数据
   - 值：函数的执行结果
@@ -400,3 +415,9 @@ export default {
   - 监听对象：data，props，computed，$route
   - 深度监听, deep: true
   - 立即执行：immediat: true
+
+### Vue Router
+
+### Vuex
+
+### Element UI

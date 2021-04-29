@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import App from './App.vue'
+// 引入axios
 import axios from 'axios'
 // 引入bus
 import bus from './bus'
