@@ -417,6 +417,70 @@ export default {
   - 立即执行：immediat: true
 
 ### Vue Router
+- 为什么需要路由
+  - 完成SPA的局部刷新
+- 路由模式
+  - hash
+  - history
+- 路由组件
+  - router-link
+    - to
+    - tag
+    - replace
+    - active-class: router-link-active
+  - router-view
+    - 学会如何划分路由区域
+    - 学会划分多级路由
+    - 路由组件所在路径匹配路由路径
+    - 几级路由匹配几次
+- 路由表
+```js
+const router = new VueRouter({
+  mode: 'history', // 路由模式 hash或者history
+  routes: [{
+    path: '/main',  // 路由路径
+    name: 'Main',  // 路由名字
+    component: Main,   // 这个路由要渲染的组件
+    children: [{
+      path: '/main/index',  // 路由路径
+      name: 'Index',  // 路由名字
+      component: Index,   // 这个路由要渲染的组件
+    },{
+      path: 'discover',  // 路由路径
+      name: 'Discover',  // 路由名字
+      component: Discover,   // 这个路由要渲染的组件
+    },{
+      path: 'order',  // 路由路径
+      name: 'Order',  // 路由名字
+      component: Order,   // 这个路由要渲染的组件
+    },{
+      path: 'profile',  // 路由路径
+      name: 'Profile',  // 路由名字
+      component: Profile,   // 这个路由要渲染的组件
+    }]
+  }, {
+    path: '/detail',  // 路由路径
+    name: 'Detail',  // 路由名字
+    component: Detail   // 这个路由要渲染的组件
+  },{
+    path: '/',
+    redirect: '/main/index'   // 路由重定向
+  },{
+    path: '*',
+    component: Page404
+  }]
+})
+```
+- 路由传参
+  - 动态路由
+    - 配置动态路由:id
+    - 拿到参数：this.$route.params.id
+  - path...query
+    - 在地址栏传参
+    - 拿到参数：this.$route.query
+  - name...param
+    - 在history对象中传参
+    - 拿到参数：this.$route.params
 
 ### Vuex
 

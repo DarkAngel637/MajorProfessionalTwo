@@ -3,6 +3,7 @@ import VueRouter from 'vue-router';
 // 引入路由组件
 import Main from '../views/main.vue';
 import Detail from '../views/detail.vue';
+import Page404 from '../views/404.vue';
 
 import Index from '../views/main/index.vue';
 import Discover from '../views/main/discover.vue';
@@ -42,7 +43,10 @@ const router = new VueRouter({
     component: Detail   // 这个路由要渲染的组件
   },{
     path: '/',
-    redirect: '/main/index'
+    redirect: '/main/index'   // 路由重定向
+  },{
+    path: '*',
+    component: Page404
   }]
 })
 
