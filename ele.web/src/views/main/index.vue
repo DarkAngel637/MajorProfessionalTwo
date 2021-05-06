@@ -25,6 +25,7 @@ export default {
         }
     },
     async created(){
+        console.log('this...', this);
         let result = await axios.get('/shop/list');
         this.list = result.data;
     }
