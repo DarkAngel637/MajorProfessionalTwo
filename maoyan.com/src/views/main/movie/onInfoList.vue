@@ -1,7 +1,7 @@
 <template>
     <ul>
         <img class="loading" v-if="!movieList.length" src="http://h5.chelun.com/2017/official/img/loading.gif" alt="">
-        <li v-for="item in movieList" :key="item.id">
+        <router-link tag="li" :to="`/detail/${item.id}`" v-for="item in movieList" :key="item.id">
             <img :src="item.img.replace('w.h', '')+'@1l_1e_1c_128w_180h'">
             <div>
                 <p>
@@ -15,7 +15,7 @@
                 <p>{{item.showInfo}}</p>
             </div>
             <button>购票</button>
-        </li>
+        </router-link>
     </ul>
 </template>
 

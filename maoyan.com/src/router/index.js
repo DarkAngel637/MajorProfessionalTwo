@@ -2,8 +2,12 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 
 // 引入一级路由
-import Main from '../views/main.vue'
-import Detail from '../views/detail.vue'
+// import Main from '../views/main.vue'
+// import Detail from '../views/detail.vue'
+
+// 路由的按需加载 => 优化首屏加载速度
+const Main = ()=>import('../views/main.vue')
+const Detail = ()=>import('../views/detail.vue')
 
 // 引入二级路由
 import Movie from '../views/main/movie.vue'
@@ -25,6 +29,9 @@ const routes = [{
       path: '/main/movie',
       component: Movie,
       children: [{
+        path: '/',
+        redirect: '/main/movie/onInfoList'
+      },{
         path: 'comingList',
         component: ComingList
       }, {
@@ -45,7 +52,7 @@ const routes = [{
       component: Profile
     }]
   }, {
-    path: '/detail/:id',
+    path: '/detail/:id?',
     component: Detail
   }, {
     path: '/',

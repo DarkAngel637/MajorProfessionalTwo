@@ -481,6 +481,18 @@ const router = new VueRouter({
   - name...param
     - 在history对象中传参
     - 拿到参数：this.$route.params
+- 路由的按需加载
+  - 作用：资源按需加载，优化首屏加载速度
+  - 借用weboack的api：const Detail = ()=>impot('@/views/detail');
+- 导航守卫
+  - 全局导航守卫
+    - beforeEach((to, from, next))
+      - 触发时机：路由跳转之前
+      - 作用：记录来的路由，实现从哪里来回哪里去的功能
+      - 作用：用于鉴权(例如登录态的拦截)，禁止访问没有权限的路由
+    - afterEach((to, from))
+      - 触发时机：路由跳转完成之后调用
+      - 作用：清理beforeEach的过渡操作(loading, nprogress等等)
 
 ### Vuex
 
