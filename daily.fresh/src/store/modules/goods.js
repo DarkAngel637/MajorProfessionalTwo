@@ -9,6 +9,17 @@ const state = {
 const mutations = {
     updateState(state, payload){
         state[payload.key] = payload.value;
+    },
+    // payload = {id, type}
+    changeNum(state, payload){
+        let index = state.goodsList.findIndex(item=>item.id === payload.id);
+        if (payload.type === '+'){
+            state.goodsList[index].num++;
+        }else{
+            if (state.goodsList[index].num > 0){
+                state.goodsList[index].num--;
+            }
+        }
     }   
 }    
 

@@ -6,8 +6,10 @@
     <router-link tag="li" to="/main/category">
       <span>分类</span>
     </router-link>
-    <router-link tag="li" to="/main/cart">
+    <router-link tag="li" to="/main/cart" class="cart">
       <span>购物车</span>
+      <span v-if="totalNum" class="num">{{ totalNum }}</span>
+      <span v-if="totalNum" class="price">¥{{ totalPrice }}</span>
     </router-link>
     <router-link tag="li" to="/main/profile">
       <span>我的</span>
@@ -15,10 +17,34 @@
   </footer>
 </template>
 
+<script>
+import { mapState } from "vuex";
+
+export default {
+  computed: {
+    // 对象里边的key是当前组件想要使用属性的名字，值是vuex中属性的路径
+    ...mapState({
+      goodsList: (state) => state.goods.goodsList,
+    }),
+    totalNum() {
+      return this.goodsList.reduce((total, item) => {
+        return (total += item.num);
+      }, 0);
+    },
+    totalPrice() {
+      return this.goodsList.reduce((total, item) => {
+        return (total += item.num * item.price);
+      }, 0);
+    },
+  },
+};
+</script>
+
+
 <style scoped lang="scss">
 footer {
   position: fixed;
-  bottom:0;
+  bottom: -2px;
   width: 100%;
   height: 50px;
   border-top: 1px solid #c0c0c0;
@@ -26,9 +52,41 @@ footer {
   align-items: center;
   justify-content: space-between;
   background: #fff;
-  li{
-      flex: 1;
-      text-align: center;
+  li {
+    flex: 1;
+    text-align: center;
+  }
+}
+.cart {
+  position: relative;
+  .num {
+    position: absolute;
+    top: -2px;
+    left: 10px;
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    line-height: 15px;
+    text-align: center;
+    border-radius: 50%;
+    background: red;
+    color: white;
+    font-size: 12px;
+  }
+  .price {
+    position: absolute;
+    top: -12px;
+    right: 10px;
+    display: inline-block;
+    padding: 1px 2px;
+    // width: 15px;
+    height: 15px;
+    line-height: 15px;
+    text-align: center;
+    border-radius: 5px;
+    background: red;
+    color: white;
+    font-size: 12px;
   }
 }
 </style>
