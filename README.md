@@ -495,5 +495,95 @@ const router = new VueRouter({
       - 作用：清理beforeEach的过渡操作(loading, nprogress等等)
 
 ### Vuex
+- 作用  
+Vuex 是一个专为 Vue.js 应用程序开发的状态管理模式。帮助组件完成状态管理和任意多个组件之间的通信。
+- 数据流向  
+![](https://vuex.vuejs.org/vuex.png)
+- 核心概念
+  - state: 存储的状态(原始数据)，所有数据改变都会触发组件更新，相当于data
+  - getters：派生数据，可以有state计算得到，相当于computed
+  - mutations: 同步改变，改变state的唯一方法
+  - actions：异步改变，处理所有异步操作，返回的是promise
+  - module/namespaced: 模块和命名空间，拆分仓库，隔离数据   
+  
+```js
+import axios from 'axios';
+
+// 模块内部状态
+const state = {
+    goodsList: []
+}   
+
+// 突变，同步改变state的方法，唯一修改state的方法
+const mutations = {
+    // state是模块内部的状态，payload是提交
+    updateState(state, payload){
+        state[payload.key] = payload.value;
+    }   
+}    
+
+// 异步改变state的方法，异步操作完成后提交mutations
+const actions = {
+    // 第一个参数是当前context，可以结构出commit
+    // 第二个参数是负载数据，触发当前action的数据
+    async getGoodsList({commit}, payload){
+        let result = await axios.get('/goods/list');
+        // debugger
+        commit('updateState', {
+            key: 'goodsList',  
+            value: result.data.list
+        });
+    }
+}     
+
+
+export default {
+    namespaced: true,   // 启用命名空间
+    state, 
+    mutations,
+    actions
+}
+```
+
+- 仓库数据到组件
+  - mapState: 把仓库的数据映射到组件的computed
+  ```js
+  computed: {
+      // 对象里边的key是当前组件想要使用属性的名字，value是vuex中指定模块state的属性
+      ...mapState({
+          goodsList: state=>state.goods.goodsList,
+          dog: state=>state.goods.goodsList
+      })
+  }
+  ```
+  - mapGetters: 把仓库中的派生数据映射到组件的computed
+  - mapMutations: 把仓库中的同步改变映射到组件的methods
+    ```js
+  methods: {
+        // 对象里边的key是我们当前组件想要使用的方法名字，值是在vuex中存储的路径
+        ...mapMutations({
+            updateState: 'goods/updateState'
+        })
+    },
+  ```
+  - mapActions: 把仓库中的异步改变映射到组件的methods
+  ```js
+  methods: {
+        // 对象里边的key是我们当前组件想要使用的方法名字，值是在vuex中存储的路径
+        ...mapActions({
+            getGoodsList: 'goods/getGoodsList'
+        })
+    },
+  ```
+- 组件改变仓库
+  - 同步改变：使用mapMutations映射过来的函数
+  - 异步改变：使用mapActions映射过来的函数
+  - 流程
+    1. 提交action,处理异步操作
+    2. 拿到异步操作执行结果，提交mutations
+    3. 在mutation里面修改state
+    4. 组件内部映射过来的state更新，组件更新  
+  
+![](./assets/actions.png)
 
 ### Element UI
