@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
+import { mapState, mapGetters } from "vuex";
 
 export default {
   computed: {
@@ -26,16 +26,10 @@ export default {
     ...mapState({
       goodsList: (state) => state.goods.goodsList,
     }),
-    totalNum() {
-      return this.goodsList.filter(item=>item.checked).reduce((total, item) => {
-        return (total += item.num);
-      }, 0);
-    },
-    totalPrice() {
-      return this.goodsList.filter(item=>item.checked).reduce((total, item) => {
-        return (total += item.num * item.price);
-      }, 0).toFixed(2);
-    },
+    ...mapGetters({
+      totalNum: 'goods/totalNum',
+      totalPrice: 'goods/totalPrice'
+    })
   },
 };
 </script>

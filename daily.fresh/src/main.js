@@ -4,6 +4,12 @@ import App from './App.vue'
 import router from './router'
 // 引入store
 import store from './store'
+// 引入vant
+import Vant from 'vant';
+// 引入vant样式
+import 'vant/lib/index.css';
+// 注册vant
+Vue.use(Vant);
 
 Vue.config.productionTip = false
 

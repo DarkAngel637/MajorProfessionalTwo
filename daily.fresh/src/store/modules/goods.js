@@ -5,6 +5,19 @@ const state = {
     goodsList: []
 }   
 
+// 派生数据
+const getters = {
+    totalNum: state=>{
+        return state.goodsList.filter(item=>item.checked).reduce((total, item) => {
+            return (total += item.num);
+          }, 0);
+    },
+    totalPrice: state=>{
+        return state.goodsList.filter(item=>item.checked).reduce((total, item) => {
+            return (total += item.num*item.price);
+          }, 0).toFixed(2);
+    }
+}
 
 // 突变，同步改变state的方法，唯一修改state的方法
 const mutations = {
@@ -53,6 +66,7 @@ const actions = {
 export default {
     namespaced: true,   // 启用命名空间
     state, 
+    getters,
     mutations,
     actions
 }

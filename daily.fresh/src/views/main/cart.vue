@@ -17,20 +17,24 @@
             <input :checked="isSelectAll" type="checkbox" name="" id="" @change="e=>changeAll(e.target.checked)">
             <span>全选</span>
             <div>
-                <p>总量:0</p>
-                <p>总价:¥0</p>
+                <p>总量:{{totalNum}}</p>
+                <p>总价:¥{{totalPrice}}</p>
             </div>
         </footer>
     </div>
 </template>
 
 <script>
-import {mapState, mapMutations} from 'vuex'
+import {mapState, mapGetters, mapMutations} from 'vuex'
 
 export default {
     computed: {
         ...mapState({
             goodsList: state=>state.goods.goodsList    
+        }),
+        ...mapGetters({
+            totalNum: 'goods/totalNum',
+            totalPrice: 'goods/totalPrice'
         }),
         list(){
             return this.goodsList.filter(item=>item.num);
