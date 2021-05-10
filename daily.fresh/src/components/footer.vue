@@ -27,14 +27,14 @@ export default {
       goodsList: (state) => state.goods.goodsList,
     }),
     totalNum() {
-      return this.goodsList.reduce((total, item) => {
+      return this.goodsList.filter(item=>item.checked).reduce((total, item) => {
         return (total += item.num);
       }, 0);
     },
     totalPrice() {
-      return this.goodsList.reduce((total, item) => {
+      return this.goodsList.filter(item=>item.checked).reduce((total, item) => {
         return (total += item.num * item.price);
-      }, 0);
+      }, 0).toFixed(2);
     },
   },
 };

@@ -5,6 +5,7 @@ const state = {
     goodsList: []
 }   
 
+
 // 突变，同步改变state的方法，唯一修改state的方法
 const mutations = {
     updateState(state, payload){
@@ -20,6 +21,16 @@ const mutations = {
                 state.goodsList[index].num--;
             }
         }
+    },
+    changeCheck(state, payload){
+        let index = state.goodsList.findIndex(item=>item.id === payload.id);
+        state.goodsList[index].checked = !state.goodsList[index].checked;
+    },
+    changeAll(state, payload){
+        let carts = state.goodsList.filter(item=>item.num);
+        carts.forEach(item=>{
+            item.checked = payload;
+        })
     }   
 }    
 

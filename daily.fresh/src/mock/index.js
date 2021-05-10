@@ -9,6 +9,7 @@ const goodsList = Mock.mock({
         "img": '@Image(200x200, @color)',
         "title": "@ctitle",
         "desc": "@ctitle(20, 30)",
+        "checked": 'true',
         "num": 0
     }]
 })
