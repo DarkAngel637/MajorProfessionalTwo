@@ -2,6 +2,8 @@ import Vue from 'vue'
 import App from './App.vue'
 // 引入router
 import router from './router'
+// 引入导航守卫
+import './router/permission'
 // 引入store
 import store from './store'
 // 引入vant

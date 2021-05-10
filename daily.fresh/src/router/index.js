@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 // 引入一级路由
 import Detail from '@/views/detail.vue'
 import Main from '@/views/main.vue'
+import Login from '@/views/login.vue'
 
 // 引入二级路由
 import Index from '@/views/main/index.vue'
@@ -31,6 +32,9 @@ const routes = [{
     path: 'profile',
     component: Profile
   }]
+}, {
+  path: '/login',
+  component: Login
 }, {
   path: '/',
   redirect: '/main/index'
