@@ -1,5 +1,6 @@
 <template>
   <div>
+    <router-link tag="div" class="search" to="/search">输入商品名称...</router-link>
     <header>
       <span
         @click="active = index"
@@ -107,6 +108,15 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.search{
+  height:30px;
+  width: 90%;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin: 10px auto;
+  padding: 0 5px;
+  line-height: 30px;
+}
 header {
   display: flex;
   align-items: center;

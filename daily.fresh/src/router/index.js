@@ -4,6 +4,7 @@ import VueRouter from 'vue-router'
 import Detail from '@/views/detail.vue'
 import Main from '@/views/main.vue'
 import Login from '@/views/login.vue'
+import Search from '@/views/search.vue'
 
 // 引入二级路由
 import Index from '@/views/main/index.vue'
@@ -35,6 +36,9 @@ const routes = [{
 }, {
   path: '/login',
   component: Login
+}, {
+  path: '/search',
+  component: Search
 }, {
   path: '/',
   redirect: '/main/index'

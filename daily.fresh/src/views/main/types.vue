@@ -1,13 +1,24 @@
 <template>
     <div>
         <ul>
-            <li :class="{active: index===active}" v-for="(item, index) in types" :key="item">{{item}}</li>
+            <li @click="updateState({key: 'active', value: index})" :class="{active: index===active}" v-for="(item, index) in types" :key="item">{{item}}</li>
+        </ul>
+        <ul>
+            <router-link tag="li" v-for="item in curGoodsList" :key="item.id" :to="`/detail/${item.id}`">
+                <img :src="item.img" alt="" />
+                <p>{{ item.title }}</p>
+                <p>{{ item.desc }}</p>
+                <div>
+                    <span>销量：{{ item.sales }}</span>
+                    <span>¥{{ item.price }}</span>
+                </div>
+            </router-link>
         </ul>
     </div>
 </template>
 
 <script>
-import {mapState, mapActions} from 'vuex';
+import {mapState, mapActions, mapMutations} from 'vuex';
 
 export default {
     computed: {
@@ -28,6 +39,9 @@ export default {
         ...mapActions({
             getTypesList: "types/getTypesList",
             getCurGoodsList: "types/getCurGoodsList"
+        }),
+        ...mapMutations({
+            updateState: "types/updateState"
         })
     },  
     async created(){
