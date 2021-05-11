@@ -10,7 +10,8 @@ const goodsList = Mock.mock({
         "title": "@ctitle",
         "desc": "@ctitle(20, 30)",
         "checked": 'true',
-        "num": 0
+        "num": 0,
+        "sales": '@integer(100, 3000)'
     }]
 })
 

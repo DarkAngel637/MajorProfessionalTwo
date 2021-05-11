@@ -1,14 +1,41 @@
 <template>
   <div>
-    <van-swipe class="my-swipe" :autoplay="3000" indicator-color="white">
-      <van-swipe-item v-for="item in banner" :key="item">{{item}}</van-swipe-item>
+    <header>
+      <span
+        @click="active = index"
+        :class="active === index ? 'active' : ''"
+        v-for="(item, index) in banner"
+        :key="item"
+        >{{ item }}</span
+      >
+    </header>
+    <van-swipe
+      class="my-swipe"
+      indicator-color="white"
+      ref="swipe"
+      @change="(index) => (active = index)"
+    >
+      <van-swipe-item v-for="item in banner" :key="item">
+        <p :title="item">{{ item }}</p>
+      </van-swipe-item>
     </van-swipe>
+    <section class="sort">
+      <p :class="sort===0?'active':''" @click="sort=0">
+        <span>价格</span>
+        <span v-if="sort===0" @click="sortType=1-sortType">{{sortType==0?'升序':'降序'}}</span>
+      </p>
+      <p :class="sort===1?'active':''" @click="sort=1">
+        <span>销量 </span>
+        <span v-if="sort===1" @click="sortType=1-sortType">{{sortType==0?'升序':'降序'}}</span>
+      </p>
+    </section>
     <ul>
-      <li v-for="item in goodsList" :key="item.id">
+      <li v-for="item in list" :key="item.id">
         <img :src="item.img" alt="" />
         <p>{{ item.title }}</p>
         <p>{{ item.desc }}</p>
         <div>
+          <span>销量：{{ item.sales }}</span>
           <span>¥{{ item.price }}</span>
           <p class="action">
             <span @click="changeNum({ id: item.id, type: '+' })">+</span>
@@ -20,19 +47,48 @@
   </div>
 </template>
 
-
 <script>
 import { mapState, mapActions, mapMutations } from "vuex";
 
 export default {
+  data() {
+    return {
+      active: 0,
+      sort: -1, //0 表示价格，1表示销量
+      sortType: 0, //0 表示升序，1表示降序
+    };
+  },
+  watch: {
+    active() {
+      this.$refs.swipe.swipeTo(this.active);
+    }
+  },
   computed: {
     // 对象里边的key是当前组件想要使用属性的名字，值是vuex中属性的路径
     ...mapState({
-        goodsList: (state) => state.goods.goodsList,
+      goodsList: (state) => state.goods.goodsList,
     }),
-    banner(){
-        return [1,2,3,4,5,6,7,8,9,10,11,12]
-    }
+    list(){
+      // 正常情况下
+      // return this.goodsList;
+      if (this.sort === 0){
+        if (this.sortType === 0){
+          return [...this.goodsList].sort((a,b)=>a.price-b.price);
+        }else{
+          return [...this.goodsList].sort((a,b)=>b.price-a.price);
+        }
+      }else if(this.sort === 1){
+        if (this.sortType === 0){
+          return [...this.goodsList].sort((a,b)=>a.sales-b.sales);
+        }else{
+          return [...this.goodsList].sort((a,b)=>b.sales-a.sales);
+        }
+      }
+      return this.goodsList;
+    },
+    banner() {
+      return [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+    },
   },
   methods: {
     // 对象里边的key是我们当前组件想要使用的方法名字，值是在vuex中存储的路径
@@ -50,12 +106,31 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.my-swipe .van-swipe-item {
-    color: #fff;
-    font-size: 20px;
-    line-height: 150px;
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  span {
+    flex: 1;
+    display: inline-block;
     text-align: center;
-    background-color: #39a9ed;
+    border-left: 1px solid #ccc;
+  }
+  span.active {
+    background: lightblue;
+  }
+}
+.sort{
+  .active{
+    color:pink;
+  }
+}
+.my-swipe .van-swipe-item {
+  color: #fff;
+  font-size: 20px;
+  line-height: 150px;
+  text-align: center;
+  background-color: #39a9ed;
 }
 ul {
   width: 100%;
