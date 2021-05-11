@@ -3,7 +3,7 @@
     <router-link tag="li" to="/main/index">
       <span>首页</span>
     </router-link>
-    <router-link tag="li" to="/main/category">
+    <router-link tag="li" to="/main/types">
       <span>分类</span>
     </router-link>
     <router-link tag="li" to="/main/cart" class="cart">

@@ -4,13 +4,15 @@ import Vuex from 'vuex'
 import createLogger from 'vuex/dist/logger'
 // 引入子模块
 import goods from './modules/goods'
+import types from './modules/types'
 
 // 使用插件
 Vue.use(Vuex)
 
 const store = new Vuex.Store({
   modules: {
-    goods
+    goods,
+    types
   },
   state: {},  // 全局状态
   plugins: [createLogger()] // 使用插件

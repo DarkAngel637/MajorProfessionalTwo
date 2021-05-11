@@ -7,7 +7,7 @@ import Login from '@/views/login.vue'
 
 // 引入二级路由
 import Index from '@/views/main/index.vue'
-import Category from '@/views/main/category'
+import Types from '@/views/main/types'
 import Profile from '@/views/main/profile.vue'
 import Cart from '@/views/main/cart.vue'
 
@@ -23,8 +23,8 @@ const routes = [{
     path: 'index',
     component: Index
   }, {
-    path: 'category',
-    component: Category
+    path: 'types',
+    component: Types
   }, {
     path: 'cart',
     component: Cart

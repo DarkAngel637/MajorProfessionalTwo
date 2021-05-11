@@ -2,7 +2,8 @@ import axios from 'axios';
 
  // 模块内部状态
 const state = {
-    goodsList: []
+    goodsList: [],
+    goodsDetail: {}
 }   
 
 // 派生数据
@@ -57,6 +58,13 @@ const actions = {
         commit('updateState', {
             key: 'goodsList',  
             value: result.data.list
+        });
+    }, 
+    async getGoodsDetail({commit}, payload){
+        let result = await axios.get('/goods/detail?id='+payload);
+        commit('updateState', {
+            key: 'goodsDetail',  
+            value: result.data
         });
     }
 }     

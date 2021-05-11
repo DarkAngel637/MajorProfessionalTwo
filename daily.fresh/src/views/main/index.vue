@@ -12,6 +12,7 @@
     <van-swipe
       class="my-swipe"
       indicator-color="white"
+      autoplay="300"
       ref="swipe"
       @change="(index) => (active = index)"
     >
@@ -30,7 +31,7 @@
       </p>
     </section>
     <ul>
-      <li v-for="item in list" :key="item.id">
+      <router-link tag="li" v-for="item in list" :key="item.id" :to="`/detail/${item.id}`">
         <img :src="item.img" alt="" />
         <p>{{ item.title }}</p>
         <p>{{ item.desc }}</p>
@@ -38,11 +39,11 @@
           <span>销量：{{ item.sales }}</span>
           <span>¥{{ item.price }}</span>
           <p class="action">
-            <span @click="changeNum({ id: item.id, type: '+' })">+</span>
+            <span @click.stop="changeNum({ id: item.id, type: '+' })">+</span>
             <span v-if="item.num">{{ item.num }}</span>
           </p>
         </div>
-      </li>
+      </router-link>
     </ul>
   </div>
 </template>
@@ -117,7 +118,7 @@ header {
     border-left: 1px solid #ccc;
   }
   span.active {
-    background: lightblue;
+    background: limegreen;
   }
 }
 .sort{
